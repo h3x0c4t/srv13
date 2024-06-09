@@ -1,0 +1,4 @@
+- name: srv13 base system installation
+  hosts: localhost
+  roles:
+    - role: preinstall
