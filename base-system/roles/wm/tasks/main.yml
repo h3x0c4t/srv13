@@ -43,7 +43,7 @@
   become: true
   copy:
     src: .xinitrc
-    dest: "{{ ansible_user_dir }}/.xinitrc"
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
+    dest: "{{ ansible_env.HOME }}/.xinitrc"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
     mode: 0644
