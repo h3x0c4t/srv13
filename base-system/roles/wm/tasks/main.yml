@@ -32,3 +32,18 @@
   apt:
     name:
       - dmenu
+
+- name: Install dex
+  become: true
+  apt:
+    name:
+      - dex
+
+- name: Create .xinitrc
+  become: true
+  copy:
+    src: .xinitrc
+    dest: /home/{{ ansible_user }}/
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0644
