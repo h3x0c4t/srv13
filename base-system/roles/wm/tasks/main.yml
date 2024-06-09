@@ -1,1 +1,34 @@
-# todo
+- name: Install xorg
+  become: true
+  apt:
+    name:
+      - xorg
+
+- name: Install DWM dependencies
+  become: true
+  apt:
+    name:
+      - libx11-dev
+      - libxft-dev
+      - libxinerama-dev
+      - libx11-xcb-dev
+      - libxcb-res0-dev
+
+- name: Download DWM
+  become: true
+  git:
+    repo: https://github.com/h3x0c4t/dwm-patched
+    dest: /usr/local/src/dwm
+    update: yes
+
+- name: Run make clean install
+  become: true
+  command: make clean install
+  args:
+    chdir: /usr/local/src/dwm
+
+- name: Install dmenu
+  become: true
+  apt:
+    name:
+      - dmenu
