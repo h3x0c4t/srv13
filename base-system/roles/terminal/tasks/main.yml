@@ -1,0 +1,41 @@
+- name: Install alacritty
+  become: true
+  apt:
+    name:
+      - alacritty
+
+- name: Check .config/alacritty directory
+  file:
+    path: "{{ ansible_env.HOME }}/.config/alacritty"
+    state: directory
+    owner: "{{ ansible_env.USER }}"
+
+- name: Copy alacritty.yml
+  copy:
+    src: alacritty.yml
+    dest: "{{ ansible_env.HOME }}/.config/alacritty/alacritty.yml"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+    mode: 0644
+
+- name: Install zsh and plugins
+  become: true
+  apt:
+    name:
+      - zsh
+      - zsh-syntax-highlighting
+      - zsh-autosuggestions
+
+- name: Copy .zshrc
+  copy:
+    src: .zshrc
+    dest: "{{ ansible_env.HOME }}/.zshrc"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+    mode: 0644
+
+- name: Make zsh the default shell
+  become: true
+  user:
+    name: "{{ ansible_env.USER }}"
+    shell: /bin/zsh

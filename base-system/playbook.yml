@@ -3,3 +3,4 @@
   roles:
     - role: preinstall
     - role: wm
+    - role: terminal
