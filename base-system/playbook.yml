@@ -2,6 +2,10 @@
   hosts: localhost
   roles:
     - role: preinstall
+      tags: preinstall
     - role: wm
+      tags: wm
     - role: terminal
+      tags: terminal
     - role: postinstall
+      tags: postinstall

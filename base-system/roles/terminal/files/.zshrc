@@ -18,7 +18,7 @@ alias grep="grep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
 alias diff="diff --color=auto"
-alias history="history 0"
+alias clear_history=':>$HISTFILE'
 
 # Keybindings
 bindkey ' ' magic-space                           # do history expansion on space
