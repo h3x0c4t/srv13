@@ -12,6 +12,7 @@
     sh /mnt/cdrom/VBoxLinuxAdditions.run --nox11
     umount /mnt/cdrom
     rmdir /mnt/cdrom
+    eject
   ignore_errors: true
 
 - name: Add user to vboxsf group
