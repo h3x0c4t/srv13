@@ -35,7 +35,7 @@ cursor:
     blinking: Off
     shape: Beam
 font:
-  size: 10
+  size: 10.5
   bold:
     family: terminal-font
     style: Bold
