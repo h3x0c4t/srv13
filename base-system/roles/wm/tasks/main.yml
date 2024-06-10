@@ -72,7 +72,7 @@
 
 - name: Check .config/fontconfig directory
   file:
-    path: "{{ ansible_env.HOME }}/.config"
+    path: "{{ ansible_env.HOME }}/.config/fontconfig"
     state: directory
     owner: "{{ ansible_env.USER }}"
 
