@@ -60,3 +60,29 @@
     owner: "{{ ansible_env.USER }}"
     group: "{{ ansible_env.USER }}"
     mode: 0755
+
+- name: Download fonts
+  become: true
+  apt:
+    name:
+      - fontconfig
+      - fonts-jetbrains-mono 
+      - fonts-noto 
+      - fonts-recommended
+
+- name: Check .config/fontconfig directory
+  file:
+    path: "{{ ansible_env.HOME }}/.config"
+    state: directory
+    owner: "{{ ansible_env.USER }}"
+
+- name: Copy fonts.conf
+  copy:
+    src: fonts.conf
+    dest: "{{ ansible_env.HOME }}/.config/fontconfig/fonts.conf"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+    mode: 0644
+
+- name: Update font cache
+  command: fc-cache -f
