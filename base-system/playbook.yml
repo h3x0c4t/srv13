@@ -4,3 +4,4 @@
     - role: preinstall
     - role: wm
     - role: terminal
+    - role: postinstall
