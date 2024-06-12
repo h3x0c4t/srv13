@@ -7,7 +7,5 @@
       tags: wm
     - role: terminal
       tags: terminal
-    - role: vboxguest
-      tags: vboxguest
     - role: postinstall
       tags: postinstall
