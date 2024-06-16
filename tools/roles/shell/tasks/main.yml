@@ -1,0 +1,25 @@
+- name: Apt update
+  become: true
+  apt:
+    update_cache: yes
+
+- name: Install packages
+  become: true
+  apt:
+    name:
+      - vim  # text editor
+      - nano # text editor
+      - tldr # explain commands
+      - ripgrep # regex search tool (rgrep)
+      - tree # display directory tree
+      - bat # cat with colors
+      - fzf # fuzzy finder
+      - jq # json parser
+      - htop # system monitor
+      - rsync # file sync
+      - curl # http requests
+      - wget # download files
+      - iproute2 # ip command
+      - socat # socket tool
+      - rlwrap # readline wrapper
+      

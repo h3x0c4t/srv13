@@ -1,0 +1,5 @@
+- name: srv13 toolset
+  hosts: localhost
+  roles:
+    - role: shell
+      tags: shell

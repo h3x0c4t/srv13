@@ -4,6 +4,8 @@
     name:
       - network-manager
       - network-manager-gnome
+      - network-manager-openvpn-gnome
+      - systemd-resolved
 
 - name: Disable networking.service
   become: true
