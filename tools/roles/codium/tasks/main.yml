@@ -1,0 +1,18 @@
+- name: Add key
+  become: true
+  apt_key:
+    url: https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg
+    state: present
+
+- name: Add repository
+  become: true
+  apt_repository:
+    repo: deb https://download.vscodium.com/debs vscodium main
+    state: present
+    update_cache: yes
+
+- name: Install packages
+  become: true
+  apt:
+    name:
+      - codium

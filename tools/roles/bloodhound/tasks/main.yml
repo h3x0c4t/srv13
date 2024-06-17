@@ -1,0 +1,33 @@
+- name: Remove old BloodHound
+  file:
+    state: absent
+    path: "{{ ansible_env.HOME }}/.local/bloodhound*"
+  ignore_errors: true
+
+- name: BloodHound
+  uri:
+    url: https://api.github.com/repos/BloodHoundAD/BloodHound/releases/latest
+    return_content: true
+  register: bloodhound_latest
+
+- name: Install BloodHound
+  loop: "{{ bloodhound_latest.json.assets }}"
+  when: "'linux-x64.zip' in item.name"
+  unarchive:
+    remote_src: yes
+    src: "{{ item.browser_download_url }}"
+    dest: "{{ ansible_env.HOME }}/.local/"
+    keep_newer: yes
+
+- name: Rename BloodHound directory
+  ansible.builtin.shell: |
+    mv {{ ansible_env.HOME }}/.local/BloodHound* {{ ansible_env.HOME }}/.local/bloodhound
+
+- name: Create launcher
+  become: true
+  copy:
+    dest: "/usr/local/bin/bloodhound"
+    content: |
+      #!/bin/sh
+      $HOME/.local/bloodhound/BloodHound --in-process-gpu  
+    mode: 0755

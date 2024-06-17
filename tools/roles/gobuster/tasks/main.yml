@@ -1,0 +1,6 @@
+- name: Compile gobuster
+  shell: GOBIN=/tmp/ go install github.com/OJ/gobuster/v3@latest
+
+- name: Copy gobuster to /usr/local/bin
+  become: true
+  shell: mv /tmp/gobuster /usr/local/bin/gobuster

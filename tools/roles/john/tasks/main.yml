@@ -1,0 +1,15 @@
+- name: Install John
+  become: true
+  apt:
+    name:
+      - john
+
+- name: Copy scripts
+  become: true
+  copy:
+    src: john/
+    dest: /usr/local/bin/
+
+- name: Set permissions
+  become: true
+  shell: chmod +x /usr/local/bin/*2john

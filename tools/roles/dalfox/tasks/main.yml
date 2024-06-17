@@ -1,0 +1,6 @@
+- name: Compile dalfox
+  shell: GOBIN=/tmp/ go install github.com/hahwul/dalfox/v2@latest
+
+- name: Copy dalfox to /usr/local/bin
+  become: true
+  shell: mv /tmp/dalfox /usr/local/bin/dalfox

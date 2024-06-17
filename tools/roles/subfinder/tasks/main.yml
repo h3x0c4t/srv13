@@ -1,0 +1,6 @@
+- name: Compile subfinder
+  shell: GOBIN=/tmp/ go install github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+
+- name: Copy subfinder to /usr/local/bin
+  become: true
+  shell: mv /tmp/subfinder /usr/local/bin/subfinder

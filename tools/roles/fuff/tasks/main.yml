@@ -1,0 +1,6 @@
+- name: Compile ffuf
+  shell: GOBIN=/tmp/ go install github.com/ffuf/ffuf/v2@latest
+
+- name: Copy ffuf to /usr/local/bin
+  become: true
+  shell: mv /tmp/ffuf /usr/local/bin/ffuf

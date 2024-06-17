@@ -1,0 +1,41 @@
+# NetExec
+- name: NetExec
+  shell: pipx install git+https://github.com/Pennyw0rth/NetExec
+
+# GoodWinRM
+- name: GoodWinRM requirements
+  shell: pipx install git+https://github.com/h3x0c4t/goodwinrm
+
+# Impacket
+- name: Impacket
+  shell: pipx install git+https://github.com/fortra/impacket
+
+# SmbMap
+- name: SmbMap
+  shell: pipx install git+https://github.com/ShawnDEvans/smbmap
+
+# DnsRecon
+- name: DnsRecon
+  shell: pipx install git+https://github.com/darkoperator/dnsrecon
+
+# Wesng - Windows Exploit Suggester
+- name: Wesng
+  shell: |
+    pipx install git+https://github.com/bitsadmin/wesng
+    pipx inject wesng chardet
+
+# Uploadserver - Simple HTTP server for uploading files
+- name: Uploadserver
+  shell: pipx install git+https://github.com/Densaugeo/uploadserver
+
+# GitHacker - A Git source leak exploit tool
+- name: GitHacker
+  shell: pipx install GitHacker
+
+# Commix - Automated All-in-One OS Command Injection and Exploitation Tool
+- name: commix
+  shell: pipx install git+https://github.com/commixproject/commix
+
+# Wafw00f - Identifies and fingerprints Web Application Firewall (WAF) products protecting a website
+- name: wafw00f
+  shell: pipx install git+https://github.com/EnableSecurity/wafw00f
