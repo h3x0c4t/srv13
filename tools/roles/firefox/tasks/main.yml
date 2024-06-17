@@ -6,7 +6,7 @@
 
 - name: Configure firefox enterprise policy
   become: true
-  shell: yes | unzip "{{ playbook_dir }}/roles/gui/files/enterprise_policy.zip" -d /usr/share/firefox-esr/
+  shell: yes | unzip "{{ playbook_dir }}/roles/firefox/files/enterprise_policy.zip" -d /usr/share/firefox-esr/
 
 - name: Start firefox
   shell: |
@@ -17,4 +17,4 @@
   shell: |
     cd ~/.mozilla/firefox/*.default-esr
     yes | rm -rf *
-    yes | unzip "{{ playbook_dir }}/roles/gui/files/profile.zip" -d ~/.mozilla/firefox/*.default-esr/
+    yes | unzip "{{ playbook_dir }}/roles/firefox/files/profile.zip" -d ~/.mozilla/firefox/*.default-esr/
