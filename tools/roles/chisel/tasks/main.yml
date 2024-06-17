@@ -14,7 +14,7 @@
 
 - name: Move chisel to /usr/local/bin
   become: true
-  shell: mv /tmp/chisel/build/1337/1337/bin/chisel_linux_amd64 /usr/local/bin/chisel
+  shell: mv /tmp/chisel/build/1337/1337/bin/chisel-linux_amd64 /usr/local/bin/chisel
 
 - name: Create chisel folder
   file:
@@ -24,10 +24,10 @@
 
 - name: Copy chisel binaries
   shell: |
-    mv /tmp/chisel/build/1337/1337/bin/chisel_linux_amd64 "{{ ansible_env.HOME }}/10-Tools/chisel/chisel_lin"
-    mv /tmp/chisel/build/1337/1337/bin/chisel_windows_amd64 "{{ ansible_env.HOME }}/10-Tools/chisel/chisel_win"
-    mv /tmp/chisel/build/1337/1337/bin/chisel_darwin_amd64 "{{ ansible_env.HOME }}/10-Tools/chisel/chisel_osx"
-    mv /tmp/chisel/build/1337/1337/bin/chisel_freebsd_amd64 "{{ ansible_env.HOME }}/10-Tools/chisel/chisel_bsd"
+    mv /tmp/chisel/build/1337/1337/bin/chisel-linux_amd64 "{{ ansible_env.HOME }}/10-Tools/chisel/chisel_lin"
+    mv /tmp/chisel/build/1337/1337/bin/chisel-windows_amd64 "{{ ansible_env.HOME }}/10-Tools/chisel/chisel_win"
+    mv /tmp/chisel/build/1337/1337/bin/chisel-darwin_amd64 "{{ ansible_env.HOME }}/10-Tools/chisel/chisel_osx"
+    mv /tmp/chisel/build/1337/1337/bin/chisel-freebsd_amd64 "{{ ansible_env.HOME }}/10-Tools/chisel/chisel_bsd"
 
 - name: Clean up
   shell: rm -rf /tmp/chisel
