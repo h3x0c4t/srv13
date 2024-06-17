@@ -1,0 +1,11 @@
+- name: Apt update
+  become: true
+  apt:
+    update_cache: yes
+
+# Hydra
+- name: Install hydra
+  become: true
+  apt:
+    name:
+      - hydra

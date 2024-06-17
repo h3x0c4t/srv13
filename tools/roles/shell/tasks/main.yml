@@ -20,9 +20,12 @@
       - curl # http requests
       - wget # download files
       - iproute2 # ip command
-      - socat # socket tool
       - rlwrap # readline wrapper
       - tmux # terminal multiplexer
+      - golang
+      - python3
+      - python3-pip
+      - pipx
 
 - name: Update .zshrc
   copy:
@@ -32,7 +35,22 @@
     group: "{{ ansible_env.USER }}"
     mode: 0644
 
+# Powershell
 - name: Install powershell
   become: true
   apt:
     deb: https://github.com/PowerShell/PowerShell/releases/download/v7.4.2/powershell_7.4.2-1.deb_amd64.deb
+
+- name: Check .config/powershell directory
+  file:
+    path: "{{ ansible_env.HOME }}/.config/powershell"
+    state: directory
+    owner: "{{ ansible_env.USER }}"
+
+- name: Powershell profile
+  copy:
+    src: Microsoft.PowerShell_profile.ps1
+    dest: "{{ ansible_env.HOME }}/.config/powershell/Microsoft.PowerShell_profile.ps1"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+    mode: 0644
