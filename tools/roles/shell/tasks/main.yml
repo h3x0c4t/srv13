@@ -31,4 +31,22 @@
     owner: "{{ ansible_env.USER }}"
     group: "{{ ansible_env.USER }}"
     mode: 0644
-      
+
+- name: Add key
+  become: true
+  apt_key:
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    state: present
+
+- name: Add repository
+  become: true
+  apt_repository:
+    repo: deb https://packages.microsoft.com/repos/microsoft-debian-bookworm-prod bookworm main
+    state: present
+    update_cache: yes
+
+- name: Install powershell
+  become: true
+  apt:
+    name:
+      - powershell
