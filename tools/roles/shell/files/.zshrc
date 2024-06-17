@@ -21,6 +21,7 @@ alias diff="diff --color=auto"
 alias tree="tree -C"
 alias cat="batcat -p"
 alias clear_history=':>$HISTFILE'
+alias history='history 0 | fzf'
 
 # Keybindings
 bindkey ' ' magic-space                           # do history expansion on space

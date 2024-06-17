@@ -1,0 +1,27 @@
+- name: Apt update
+  become: true
+  apt:
+    update_cache: yes
+
+# Firefox
+- name: Install packages
+  become: true
+  apt:
+    name:
+      - firefox-esr
+
+- name: Configure firefox enterprise policy
+  become: true
+  shell: yes | unzip "{{ playbook_dir }}/roles/gui/files/enterprise_policy.zip" -d /usr/share/firefox-esr/
+
+- name: Start firefox
+  shell: |
+    timeout 6 firefox
+  ignore_errors: true
+
+- name: Configure firefox profile
+  shell: |
+    cd ~/.mozilla/firefox/*.default-esr
+    yes | rm -rf *
+    yes | unzip "{{ playbook_dir }}/roles/gui/files/profile.zip" -d ~/.mozilla/firefox/*.default-esr/
+

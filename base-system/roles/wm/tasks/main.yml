@@ -120,3 +120,10 @@
     owner: "{{ ansible_env.USER }}"
     group: "{{ ansible_env.USER }}"
     mode: 0644
+
+- name: Install thunar
+  become: true
+  apt:
+    name:
+      - thunar
+      - thunar-archive-plugin

@@ -22,4 +22,13 @@
       - iproute2 # ip command
       - socat # socket tool
       - rlwrap # readline wrapper
+      - tmux # terminal multiplexer
+
+- name: Update .zshrc
+  copy:
+    src: .zshrc
+    dest: "{{ ansible_env.HOME }}/.zshrc"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+    mode: 0644
       
