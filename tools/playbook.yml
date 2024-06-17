@@ -3,3 +3,5 @@
   roles:
     - role: shell
       tags: shell
+    - role: gui
+      tags: gui
