@@ -1,0 +1,6 @@
+- name: Compile garble
+  shell: GOBIN=/tmp/ go install mvdan.cc/garble@latest
+
+- name: Copy garble to /usr/local/bin
+  become: true
+  shell: mv /tmp/garble /usr/local/bin/garble

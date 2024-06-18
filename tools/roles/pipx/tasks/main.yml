@@ -39,3 +39,19 @@
 # Wafw00f - Identifies and fingerprints Web Application Firewall (WAF) products protecting a website
 - name: wafw00f
   shell: pipx install git+https://github.com/EnableSecurity/wafw00f
+
+# DonPAPI - Dumping revelant information on compromised targets
+- name: DonPAPI
+  shell: pipx install git+https://github.com/login-securite/DonPAPI.git
+
+# Pypykatz - Mimikatz implementation in pure Python
+- name: pypykatz
+  shell: pipx install git+https://github.com/skelsec/pypykatz
+
+# Smbclient-ng
+- name: smbclient-ng
+  shell: pipx install git+https://github.com/p0dalirius/smbclient-ng
+
+# Certipy
+- name: certipy
+  shell: pipx install git+https://github.com/ly4k/Certipy

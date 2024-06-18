@@ -39,12 +39,7 @@
       tags: nomore403
     - role: bloodhound
       tags: bloodhound
-    # govmomi
-    # burp
-    # garble
-    # donpapi
-    # pypykatz
-    # smbclient-ng
-    # certipy
-    # responder
-    # kerbrute
+    - role: garble
+      tags: garble
+    - role: git-tools
+      tags: git-tools

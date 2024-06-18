@@ -1,2 +1,6 @@
-#
-
+# Responder
+- name: Clone chisel
+  git:
+    repo: https://github.com/lgandx/Responder
+    dest: "{{ ansible_env.HOME }}/10-Tools/responder"
+    force: yes
