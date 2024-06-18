@@ -1,0 +1,6 @@
+- name: Compile tlsx
+  shell: GOBIN=/tmp/ go install github.com/projectdiscovery/tlsx/cmd/tlsx@latest
+
+- name: Copy tlsx to /usr/local/bin
+  become: true
+  shell: mv /tmp/tlsx /usr/local/bin/tlsx

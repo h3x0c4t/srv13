@@ -1,0 +1,6 @@
+- name: Download foo.conf
+  become: true
+  get_url:
+    url: https://raw.githubusercontent.com/p0dalirius/owabrute/main/owabrute.sh
+    dest: /usr/local/bin/owabrute
+    mode: 755

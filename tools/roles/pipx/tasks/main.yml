@@ -55,3 +55,8 @@
 # Certipy
 - name: certipy
   shell: pipx install git+https://github.com/ly4k/Certipy
+
+# Ldapdomaindump
+- name: ldapdomaindump
+  shell: pipx install git+https://github.com/dirkjanm/ldapdomaindump
+  

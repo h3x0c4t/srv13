@@ -41,5 +41,9 @@
       tags: bloodhound
     - role: garble
       tags: garble
+    - role: tlsx
+      tags: tlsx
+    - role: owabrute
+      tags: owabrute
     - role: git-tools
       tags: git-tools
