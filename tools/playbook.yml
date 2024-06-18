@@ -47,3 +47,5 @@
       tags: owabrute
     - role: git-tools
       tags: git-tools
+    - role: burpsuite
+      tags: burpsuite
