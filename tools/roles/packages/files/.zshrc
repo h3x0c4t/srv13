@@ -1,5 +1,6 @@
 # Path
 export GOPATH=$HOME/.local/go
+export PATH=$PATH:~/.local/bin
 
 # https://zsh.sourceforge.io/Doc/Release/Options.html
 stty stop undef
