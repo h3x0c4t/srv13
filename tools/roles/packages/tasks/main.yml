@@ -53,6 +53,8 @@
       - hydra
       - exif
       - keepassxc
+      - vlc
+      - nsxiv
 
 - name: Update .zshrc
   copy:

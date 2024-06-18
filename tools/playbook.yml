@@ -51,6 +51,8 @@
       tags: rustscan
     - role: cliws
       tags: cliws
+    - role: seclists
+      tags: seclists
     - role: git-tools
       tags: git-tools
     - role: burpsuite
