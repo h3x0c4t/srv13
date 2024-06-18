@@ -45,6 +45,12 @@
       tags: tlsx
     - role: owabrute
       tags: owabrute
+    - role: vnc-viewer
+      tags: vnc-viewer
+    - role: rustscan
+      tags: rustscan
+    - role: cliws
+      tags: cliws
     - role: git-tools
       tags: git-tools
     - role: burpsuite

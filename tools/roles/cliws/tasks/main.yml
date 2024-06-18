@@ -1,0 +1,24 @@
+- name: Create cliws folder
+  file:
+    path: "{{ ansible_env.HOME }}/10-Tools/cliws"
+    state: directory
+    owner: "{{ ansible_env.USER }}"
+
+- name: Install cliws
+  become: true
+  copy:
+    src: cliws
+    dest: /usr/local/bin/cliws
+    mode: 0755
+
+- name: Copy cliws binaries
+  copy:
+    src: cliws
+    dest: "{{ ansible_env.HOME }}/10-Tools/cliws/cliws"
+    mode: 0755
+
+- name: Copy cliws binaries
+  copy:
+    src: cliws.exe
+    dest: "{{ ansible_env.HOME }}/10-Tools/cliws/cliws.exe"
+    mode: 0755
