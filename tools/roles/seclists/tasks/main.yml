@@ -1,5 +1,5 @@
 - name: Clone seclists
   git:
-    repo: git clone https://github.com/danielmiessler/SecLists.git
+    repo: https://github.com/danielmiessler/SecLists
     dest: ~/10-Tools/seclists
     force: yes
