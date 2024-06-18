@@ -127,3 +127,17 @@
     name:
       - thunar
       - thunar-archive-plugin
+
+- name: Check .config/Thunar directory
+  file:
+    path: "{{ ansible_env.HOME }}/.config/Thunar"
+    state: directory
+    owner: "{{ ansible_env.USER }}"
+
+- name: Copy uca.xml
+  copy:
+    src: uca.xml
+    dest: "{{ ansible_env.HOME }}/.config/Thunar/uca.xml"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+    mode: 0644
