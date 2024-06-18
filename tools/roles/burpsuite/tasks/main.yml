@@ -1,0 +1,36 @@
+- name: Remove old burpsuite
+  file:
+    state: absent
+    path: "{{ ansible_env.HOME }}/.local/burpsuite*"
+  ignore_errors: true
+
+- name: Install java
+  become: true
+  ansible.builtin.apt:
+    name: openjdk-17-jdk
+
+- name: Create burpsuite directory
+  file: 
+    path: "{{ ansible_env.HOME }}/.local/burpsuite"
+    state: directory
+
+- name: Extract burpsuite
+  unarchive:
+    src: burpsuite.tar.gz
+    dest: "{{ ansible_env.HOME }}/.local/burpsuite/"
+
+- name: Create launcher
+  become: true
+  copy:
+    dest: "/usr/local/bin/burp"
+    content: |
+      #!/bin/sh
+      "/usr/lib/jvm/java-17-openjdk-amd64/bin/java" "--add-opens=java.desktop/javax.swing=ALL-UNNAMED" "--add-opens=java.base/java.lang=ALL-UNNAMED" "--add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED" "--add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED" "-javaagent:${HOME}/.local/burpsuite/burploader.jar" "-jar" "${HOME}/.local/burpsuite/burpsuite_pro_v2024.1.1.1.jar"
+    mode: 0755
+
+- name: Keygen
+  tags: burp
+  ansible.builtin.shell: |
+    cd {{ ansible_env.HOME }}/.local/burpsuite
+    java -jar burploader.jar
+  ignore_errors: true
