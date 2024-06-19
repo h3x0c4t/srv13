@@ -1,0 +1,19 @@
+- name: download DWM
+  become: true
+  git:
+    repo: https://github.com/h3x0c4t/dwm-patched
+    dest: /opt/dwm
+
+- name: install DWM
+  become: true
+  shell: make clean install
+  args:
+    chdir: /opt/dwm
+
+- name: copy .xinitrc
+  copy:
+    src: .xinitrc
+    dest: "{{ ansible_env.HOME }}/.xinitrc"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+    mode: 0644

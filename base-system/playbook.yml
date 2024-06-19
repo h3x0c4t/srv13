@@ -1,5 +1,8 @@
 - name: srv13 base system installation
   hosts: localhost
+  pre_tasks:
+    - name: Install roles from Ansible Galaxy
+      command: ansible-galaxy install -r {{ role_path }}/requirements.yml
   roles:
     - role: preinstall
       tags: preinstall

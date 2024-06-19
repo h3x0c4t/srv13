@@ -5,41 +5,35 @@
     state: latest
     name:
       - build-essential
-      - zip
-      - unzip
-      - p7zip-full
       - git
       - curl
       - wget
-      - dex
-      # console tools
+      - zip
+      - unzip
+      - p7zip-full
+      - nvim
+      - nano
+      - tmux
       - zsh
       - zsh-syntax-highlighting
       - zsh-autosuggestions
-      - nvim
-      - nano
-      - htop
-      - tmux
-      - fzf
-      - ripgrep
-      # gui tools
       - xorg
       - libx11-dev
       - libxft-dev
       - libxinerama-dev
       - libx11-xcb-dev
       - libxcb-res0-dev
+      - dmenu
+      - dex
       - fontconfig
       - fonts-jetbrains-mono 
       - fonts-noto 
       - fonts-recommended
-      - alacritty
-      - dmenu
       - papirus-icon-theme
+      - alacritty
       - thunar
       - thunar-archive-plugin
       - firefox-esr
-      # network and vm tools
       - open-vm-tools-desktop
       - network-manager
       - network-manager-gnome
