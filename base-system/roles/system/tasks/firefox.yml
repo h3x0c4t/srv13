@@ -14,11 +14,31 @@
   set_fact:
     firefox_config_folder_path: "{{ firefox_config_folder_search.files[0].path }}"
 
-- name: Add in Firefox config
-  copy:
-    src: files/firefox/user.js
-    dest: "{{ firefox_config_folder_path }}/user.js"
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
-    mode: 0644
-  when: firefox_config_folder_path != 'false'
+- name: delete default profile
+  file:
+    path: "{{ firefox_config_folder_path }}"
+    state: absent
+
+- name: create new profile folder
+  file:
+    path: "{{ firefox_config_folder_path }}"
+    state: directory
+    recurse: true
+
+- name: copy user profile
+  unarchive:
+    src: profile.zip
+    dest: "{{ firefox_config_folder_path }}"
+
+- name: create /usr/share/firefox-esr directory
+  become: true
+  file:
+    path: /usr/share/firefox-esr
+    state: directory
+    recurse: true
+
+- name: copy firefox enterprise policy
+  become: true
+  unarchive:
+    src: enterprise_policy.zip
+    dest: /usr/share/firefox-esr
