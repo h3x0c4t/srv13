@@ -1,6 +1,0 @@
-- name: Install MetaSploit
-  become: true
-  shell: |
-    curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > /tmp/msfinstall
-    chmod +x /tmp/msfinstall
-    /tmp/msfinstall

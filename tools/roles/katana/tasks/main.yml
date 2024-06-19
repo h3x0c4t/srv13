@@ -1,6 +1,0 @@
-- name: Compile katana
-  shell: GOBIN=/tmp/ go install github.com/projectdiscovery/katana/cmd/katana@latest
-
-- name: Copy katana to /usr/local/bin
-  become: true
-  shell: mv /tmp/katana /usr/local/bin/katana

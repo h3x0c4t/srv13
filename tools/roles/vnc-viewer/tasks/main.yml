@@ -1,6 +1,0 @@
-- name: Install vnc-viewer
-  become: true
-  copy:
-    src: vnc-viewer
-    dest: /usr/local/bin/vnc-viewer
-    mode: 0755

@@ -1,0 +1,47 @@
+- name: install packages
+  become: true
+  apt:
+    update_cache: yes
+    state: latest
+    name:
+      - build-essential
+      - zip
+      - unzip
+      - p7zip-full
+      - git
+      - curl
+      - wget
+      - dex
+      # console tools
+      - zsh
+      - zsh-syntax-highlighting
+      - zsh-autosuggestions
+      - nvim
+      - nano
+      - htop
+      - tmux
+      - fzf
+      - ripgrep
+      # gui tools
+      - xorg
+      - libx11-dev
+      - libxft-dev
+      - libxinerama-dev
+      - libx11-xcb-dev
+      - libxcb-res0-dev
+      - fontconfig
+      - fonts-jetbrains-mono 
+      - fonts-noto 
+      - fonts-recommended
+      - alacritty
+      - dmenu
+      - papirus-icon-theme
+      - thunar
+      - thunar-archive-plugin
+      - firefox-esr
+      # network and vm tools
+      - open-vm-tools-desktop
+      - network-manager
+      - network-manager-gnome
+      - network-manager-openvpn-gnome
+      - systemd-resolved
