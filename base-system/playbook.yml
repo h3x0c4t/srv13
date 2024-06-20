@@ -11,9 +11,6 @@
     - {"role": "terminal", "tags": "terminal"}
     - {"role": "firefox", "tags": "firefox"}
     - role: gantsign.visual-studio-code
-      name: install vscode
-      local_action: command ansible-galaxy install -r requirements.yml --ignore-errors
-      tags: vscode
       users:
         - username: "{{ ansible_env.USER }}"
           visual_studio_code_extensions:
