@@ -39,7 +39,3 @@
       - thunar-archive-plugin
       - firefox-esr
       - open-vm-tools-desktop
-      - network-manager
-      - network-manager-gnome
-      - network-manager-openvpn-gnome
-      - systemd-resolved

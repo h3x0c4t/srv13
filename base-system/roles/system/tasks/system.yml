@@ -37,6 +37,16 @@
     path: "{{ ansible_env.HOME }}/30-Share"
     state: directory
 
+- name: install network packages
+  become: true
+  apt:
+    state: latest
+    name:
+      - network-manager
+      - network-manager-gnome
+      - network-manager-openvpn-gnome
+      - systemd-resolved
+
 - name: Disable networking.service
   become: true
   systemd:
