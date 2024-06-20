@@ -3,7 +3,7 @@
 - import_tasks: gtk.yml
 - import_tasks: terminal.yml
 - import_tasks: firefox.yml
-- import_tasks: vscode.yml
+- include_role: vscode.yml
 - import_tasks: system.yml
 # - import_tasks: tmux.yml
 # - import_tasks: nvim.yml
