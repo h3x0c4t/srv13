@@ -11,7 +11,7 @@
       - zip
       - unzip
       - p7zip-full
-      - nvim
+      - neovim
       - nano
       - tmux
       - zsh
