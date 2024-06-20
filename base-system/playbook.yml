@@ -1,8 +1,5 @@
 - name: srv13 base system installation
   hosts: localhost
-  pre_tasks:
-    - name: install roles from ansible galaxy
-      command: "ansible-galaxy install -r {{ role_path }}/requirements.yml"
   roles:
     - {"role": "packages", "tags": "packages"}
     - {"role": "fonts", "tags": "fonts"}
@@ -11,7 +8,6 @@
     - {"role": "terminal", "tags": "terminal"}
     - {"role": "firefox", "tags": "firefox"}
     - role: gantsign.visual-studio-code
-      # local_action: command ansible-galaxy install -r requirements.yml --ignore-errors
       tags: vscode
       users:
         - username: "{{ ansible_env.USER }}"
