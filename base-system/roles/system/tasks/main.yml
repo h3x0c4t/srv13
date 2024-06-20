@@ -1,10 +1,10 @@
-- import_tasks: xdg.yml
-- import_tasks: fonts.yml
-- import_tasks: dwm.yml
-- import_tasks: gtk.yml
-- import_tasks: terminal.yml
+- import_tasks: system/tasks/xdg.yml
+- import_tasks: system/tasks/fonts.yml
+- import_tasks: system/tasks/dwm.yml
+- import_tasks: system/tasks/gtk.yml
+- import_tasks: system/tasks/terminal.yml
 # - import_tasks: tmux.yml
 # - import_tasks: nvim.yml
-- import_tasks: firefox.yml
+- import_tasks: system/tasks/firefox.yml
 # - import_tasks: vscode.yml
-- import_tasks: system.yml
+- import_tasks: system/tasks/system.yml
