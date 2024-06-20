@@ -1,4 +1,4 @@
-- name: download DWM
+- name: clone DWM
   become: true
   git:
     repo: https://github.com/h3x0c4t/dwm-patched

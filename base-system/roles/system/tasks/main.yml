@@ -1,9 +1,0 @@
-- import_tasks: fonts.yml
-- import_tasks: dwm.yml
-- import_tasks: gtk.yml
-- import_tasks: terminal.yml
-- import_tasks: firefox.yml
-- import_tasks: vscode.yml
-- import_tasks: system.yml
-# - import_tasks: tmux.yml
-# - import_tasks: nvim.yml

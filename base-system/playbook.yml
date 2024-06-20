@@ -4,7 +4,19 @@
     - name: install roles from ansible galaxy
       command: "ansible-galaxy install -r {{ role_path }}/requirements.yml"
   roles:
-    - role: packages
-      tags: packages
-    - role: system
-      tags: system
+    - {"role": "packages", "tags": "packages"}
+    - {"role": "fonts", "tags": "fonts"}
+    - {"role": "dwm", "tags": "dwm"}
+    - {"role": "gtk", "tags": "gtk"}
+    - {"role": "terminal", "tags": "terminal"}
+    - {"role": "firefox", "tags": "firefox"}
+    - role: gantsign.visual-studio-code
+      name: install vscode
+      tags: vscode
+      users:
+        - username: "{{ ansible_env.USER }}"
+          visual_studio_code_extensions:
+            - mads-hartmann.bash-ide-vscode
+            - mhutchie.git-graph
+    - {"role": "misc", "tags": "misc"}
+    - {"role": "network", "tags": "network"}
