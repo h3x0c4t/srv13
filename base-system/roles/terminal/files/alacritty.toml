@@ -60,16 +60,13 @@ style = "Italic"
 family = "terminal-font"
 style = "Regular"
 
+[hints]
+alphabet = "jfkdls;ahgurieowpq"
+
 [[hints.enabled]]
 command = "xdg-open"
 hyperlinks = true
 post_processing = true
-regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\" {-}\\^⟨⟩`]+"
-
-[hints.enabled.binding]
-key = "U"
-mods = "Control|Shift"
-
-[hints.enabled.mouse]
-enabled = true
-mods = "Control"
+regex = "(https:|http:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-\u009F<>\" {-}\\^⟨⟩`]+"
+binding = { key = "U", mods = "Control|Shift" }
+mouse = { mods = "Control", enabled = true }
