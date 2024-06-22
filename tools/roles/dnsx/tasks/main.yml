@@ -1,6 +1,0 @@
-- name: Compile dnsx
-  shell: GOBIN=/tmp/ go install github.com/projectdiscovery/dnsx/cmd/dnsx@latest
-
-- name: Copy dnsx to /usr/local/bin
-  become: true
-  shell: mv /tmp/dnsx /usr/local/bin/dnsx

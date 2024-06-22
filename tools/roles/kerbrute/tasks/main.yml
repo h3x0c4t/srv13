@@ -1,6 +1,0 @@
-- name: Compile kerbrute
-  shell: GOBIN=/tmp/ go install github.com/ropnop/kerbrute@latest
-
-- name: Copy kerbrute to /usr/local/bin
-  become: true
-  shell: mv /tmp/kerbrute /usr/local/bin/kerbrute

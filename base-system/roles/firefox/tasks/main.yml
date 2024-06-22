@@ -1,0 +1,44 @@
+- name: first start firefox
+  shell: timeout 10 firefox-esr --headless
+  ignore_errors: true
+
+- name: check firefox config folder
+  find:
+    paths: "{{ ansible_env.HOME }}/.mozilla/firefox"
+    patterns: '^.*\.default-esr'
+    use_regex: true
+    file_type: directory
+  register: firefox_config_folder_search
+
+- name: set firefox folder name as fact
+  set_fact:
+    firefox_config_folder_path: "{{ firefox_config_folder_search.files[0].path }}"
+
+- name: delete default profile
+  file:
+    path: "{{ firefox_config_folder_path }}"
+    state: absent
+
+- name: create new profile folder
+  file:
+    path: "{{ firefox_config_folder_path }}"
+    state: directory
+    recurse: true
+
+- name: copy user profile
+  unarchive:
+    src: profile.zip
+    dest: "{{ firefox_config_folder_path }}"
+
+- name: create /usr/share/firefox-esr directory
+  become: true
+  file:
+    path: /usr/share/firefox-esr
+    state: directory
+    recurse: true
+
+- name: copy firefox enterprise policy
+  become: true
+  unarchive:
+    src: enterprise_policy.zip
+    dest: /usr/share/firefox-esr

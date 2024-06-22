@@ -1,0 +1,39 @@
+- name: create ~/.local/share/themes directory
+  file:
+    path: "{{ ansible_env.HOME }}/.local/share/themes"
+    state: directory
+    recurse: true
+
+- name: download nordic theme
+  git:
+    repo: https://github.com/EliverLara/Nordic
+    dest: "{{ ansible_env.HOME }}/.local/share/themes/Nordic-darker-standard-buttons"
+    version: darker-standard-buttons
+
+- name: create ~/.config/gtk-3.0 directory
+  file:
+    path: "{{ ansible_env.HOME }}/.config/gtk-3.0"
+    state: directory
+    recurse: true
+
+- name: copy settings.ini
+  copy:
+    src: settings.ini
+    dest: "{{ ansible_env.HOME }}/.config/gtk-3.0/settings.ini"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+    mode: 0644
+
+- name: create .config/Thunar directory
+  file:
+    path: "{{ ansible_env.HOME }}/.config/Thunar"
+    state: directory
+    recurse: true
+
+- name: copy uca.xml
+  copy:
+    src: uca.xml
+    dest: "{{ ansible_env.HOME }}/.config/Thunar/uca.xml"
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+    mode: 0644

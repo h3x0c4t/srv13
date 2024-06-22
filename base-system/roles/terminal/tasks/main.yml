@@ -1,32 +1,18 @@
-- name: Install alacritty
-  become: true
-  apt:
-    name:
-      - alacritty
-
-- name: Check .config/alacritty directory
+- name: create .~/config/alacritty directory
   file:
     path: "{{ ansible_env.HOME }}/.config/alacritty"
     state: directory
-    owner: "{{ ansible_env.USER }}"
+    recurse: true
 
-- name: Copy alacritty.yml
+- name: copy alacritty.toml
   copy:
-    src: alacritty.yml
-    dest: "{{ ansible_env.HOME }}/.config/alacritty/alacritty.yml"
+    src: alacritty.toml
+    dest: "{{ ansible_env.HOME }}/.config/alacritty/alacritty.toml"
     owner: "{{ ansible_env.USER }}"
     group: "{{ ansible_env.USER }}"
     mode: 0644
 
-- name: Install zsh and plugins
-  become: true
-  apt:
-    name:
-      - zsh
-      - zsh-syntax-highlighting
-      - zsh-autosuggestions
-
-- name: Copy .zshrc
+- name: copy .zshrc
   copy:
     src: .zshrc
     dest: "{{ ansible_env.HOME }}/.zshrc"

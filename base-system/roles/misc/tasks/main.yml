@@ -1,0 +1,35 @@
+- name: copy /etc/xdg/user-dirs.defaults
+  become: true
+  copy:
+    src: user-dirs.defaults
+    dest: /etc/xdg/user-dirs.defaults
+    owner: root
+    group: root
+    mode: 0644
+
+- name: update /etc/fstab
+  become: true
+  lineinfile:
+    path: /etc/fstab
+    line: .host:/    /mnt/hgfs    fuse.vmhgfs-fuse    defaults,allow_other    0    0
+
+- name: create home folders 1
+  file:
+    path: "{{ ansible_env.HOME }}/10-Tools"
+    state: directory
+
+- name: create home folders 2
+  file:
+    path: "{{ ansible_env.HOME }}/20-Data"
+    state: directory
+
+- name: create home folders 3
+  file:
+    src: "/mnt/hgfs"
+    path: "{{ ansible_env.HOME }}/30-Share"
+    state: link
+  
+- name: create home folders 4
+  file:
+    path: "{{ ansible_env.HOME }}/40-Dev"
+    state: directory

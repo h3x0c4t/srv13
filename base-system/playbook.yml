@@ -1,11 +1,20 @@
 - name: srv13 base system installation
   hosts: localhost
   roles:
-    - role: preinstall
-      tags: preinstall
-    - role: wm
-      tags: wm
-    - role: terminal
-      tags: terminal
-    - role: postinstall
-      tags: postinstall
+    - {"role": "packages", "tags": "packages"}
+    - {"role": "fonts", "tags": "fonts"}
+    - {"role": "dwm", "tags": "dwm"}
+    - {"role": "gtk", "tags": "gtk"}
+    - {"role": "terminal", "tags": "terminal"}
+    - {"role": "tmux", "tags": "tmux"}
+    - {"role": "nvim", "tags": "nvim"}
+    - {"role": "firefox", "tags": "firefox"}
+    - role: gantsign.visual-studio-code
+      tags: vscode
+      users:
+        - username: "{{ ansible_env.USER }}"
+          visual_studio_code_extensions:
+            - mads-hartmann.bash-ide-vscode
+            - mhutchie.git-graph
+    - {"role": "misc", "tags": "misc"}
+    - {"role": "network", "tags": "network"}

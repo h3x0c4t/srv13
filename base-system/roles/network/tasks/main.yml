@@ -1,0 +1,41 @@
+- name: copy nm-applet.desktop
+  become: true
+  copy:
+    src: nm-applet.desktop
+    dest: /etc/xdg/autostart/nm-applet.desktop
+    owner: root
+    group: root
+    mode: 0644
+
+- name: install network packages
+  become: true
+  apt:
+    state: latest
+    name:
+      - network-manager
+      - network-manager-gnome
+      - network-manager-openvpn-gnome
+      - systemd-resolved
+
+- name: disable networking.service
+  become: true
+  systemd:
+    name: networking.service
+    enabled: no
+    state: stopped
+
+- name: enable NetworkManager
+  become: true
+  systemd:
+    name: NetworkManager
+    enabled: yes
+    state: started
+
+- name: copy interfaces file
+  become: true
+  copy:
+    src: interfaces
+    dest: /etc/network/interfaces
+    owner: root
+    group: root
+    mode: 0644

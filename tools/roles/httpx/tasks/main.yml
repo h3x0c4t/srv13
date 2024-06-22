@@ -1,6 +1,0 @@
-- name: Compile httpx
-  shell: GOBIN=/tmp/ go install github.com/projectdiscovery/httpx/cmd/httpx@latest
-
-- name: Copy httpx to /usr/local/bin
-  become: true
-  shell: mv /tmp/httpx /usr/local/bin/httpx
