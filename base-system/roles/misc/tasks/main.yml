@@ -28,6 +28,7 @@
     src: "/mnt/hgfs"
     path: "{{ ansible_env.HOME }}/30-Share"
     state: link
+    force: true
   
 - name: create home folders 4
   file:
