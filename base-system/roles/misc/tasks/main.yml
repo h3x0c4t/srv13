@@ -25,5 +25,11 @@
 
 - name: create home folders 3
   file:
+    src: "/mnt/hgfs"
     path: "{{ ansible_env.HOME }}/30-Share"
+    state: link
+  
+- name: create home folders 4
+  file:
+    path: "{{ ansible_env.HOME }}/40-Dev"
     state: directory
