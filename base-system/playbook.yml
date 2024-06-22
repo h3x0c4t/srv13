@@ -6,6 +6,8 @@
     - {"role": "dwm", "tags": "dwm"}
     - {"role": "gtk", "tags": "gtk"}
     - {"role": "terminal", "tags": "terminal"}
+    - {"role": "tmux", "tags": "tmux"}
+    - {"role": "nvim", "tags": "nvim"}
     - {"role": "firefox", "tags": "firefox"}
     - role: gantsign.visual-studio-code
       tags: vscode
