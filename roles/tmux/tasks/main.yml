@@ -1,4 +1,4 @@
-- name: create .~/config/tmux directory
+- name: create ~/.config/tmux directory
   file:
     path: "{{ ansible_env.HOME }}/.config/tmux"
     state: directory
